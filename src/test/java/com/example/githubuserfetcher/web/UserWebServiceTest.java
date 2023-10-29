@@ -41,7 +41,7 @@ public class UserWebServiceTest {
         Mockito.when(userService.getUser(validUsername)).thenReturn(mockUserDto);
 
         // When
-        ResultActions result = mockMvc.perform(get("/api/users/{username}", validUsername)
+        ResultActions result = mockMvc.perform(get("/users/{username}", validUsername)
                 .contentType(MediaType.APPLICATION_JSON));
 
         // Then
@@ -57,7 +57,7 @@ public class UserWebServiceTest {
         String invalidUsername = " ";
 
         // When
-        ResultActions result = mockMvc.perform(get("/api/users/{username}", invalidUsername)
+        ResultActions result = mockMvc.perform(get("/users/{username}", invalidUsername)
                 .contentType(MediaType.APPLICATION_JSON));
 
         // Then
@@ -70,7 +70,7 @@ public class UserWebServiceTest {
         String invalidUsername = "john@doe";
 
         // When
-        ResultActions result = mockMvc.perform(get("/api/users/{username}", invalidUsername)
+        ResultActions result = mockMvc.perform(get("/users/{username}", invalidUsername)
                 .contentType(MediaType.APPLICATION_JSON));
 
         // Then
